@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!response.ok) {
                 throw new Error('Network response was not ok: ' + response.statusText);
             }
-            return response.json(); 
+            return response.text();
         })
         .then(data => {
             document.getElementById('response').innerText = JSON.stringify(data);
