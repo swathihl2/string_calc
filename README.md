@@ -1,6 +1,11 @@
 # string_calc
 string calculator
 
+## Technical assessment round 1:
+
+## Incubyte 
+
+
 
 Steps:
 Create a simple String calculator with a method signature like this:
