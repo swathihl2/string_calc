@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.text();
         })
         .then(data => {
-            document.getElementById('response').innerText = JSON.stringify(data);
+            document.getElementById('response').innerText = data;
         })
         .catch(error => {
             console.error('Error:', error);
