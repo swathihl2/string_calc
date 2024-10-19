@@ -3,14 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        #response {
-            margin-top: 20px;
-            border: 1px solid #ccc;
-            padding: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/scripts.js"></script>
 </head>
+
 <body>
 <h1>Simple String Calculator</h1>
 <form id="dataForm">
@@ -18,39 +14,10 @@
     <input type="text" id="numbers" name="numbers"><br><br>
     <input type="submit" value="Submit">
 </form>
-    <div> 
-        Result : 
-        <div id="response"></div>
-    </div>
-<script>
-    document.getElementById('dataForm').addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        const data = document.getElementById("numbers").value;
-
-        const url = 'https://shl-server.onrender.com/stringcalc';
-
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({"numbers": data})
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.text();
-            })
-            .then(data => {
-                document.getElementById('response').innerText = data;
-            })
-            .catch(error => {
-                document.getElementById('response').innerText = 'Error: ' + error;
-            });
-    });
-</script>
+<div>
+    Result :
+    <div id="response"></div>
+</div>
 
 </body>
 </html>
