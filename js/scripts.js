@@ -1,27 +1,35 @@
-document.getElementById('dataForm').addEventListener('submit', function (event) {
-    event.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('dataForm').addEventListener('submit', function (event) {
+        event.preventDefault();
 
-    const data = document.getElementById("numbers").value;
+        const data = document.getElementById("numbers").value.trim();
 
-    const url = 'https://shl-server.onrender.com/stringcalc';
+        if (!data) {
+            document.getElementById('response').innerText = 'Please enter a string.';
+            return;
+        }
 
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({"numbers": data})
-    })
+        const url = 'https://shl-server.onrender.com/stringcalc';
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ "numbers": data })
+        })
         .then(response => {
             if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
+                throw new Error('Network response was not ok: ' + response.statusText);
             }
-            return response.text();
+            return response.json(); 
         })
         .then(data => {
-            document.getElementById('response').innerText = data;
+            document.getElementById('response').innerText = JSON.stringify(data);
         })
         .catch(error => {
-            document.getElementById('response').innerText = 'Error: ' + error;
+            console.error('Error:', error);
+            document.getElementById('response').innerText = 'Error: ' + error.message;
         });
+    });
 });
