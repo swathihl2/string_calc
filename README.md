@@ -5,8 +5,7 @@ string calculator
 
 ## Incubyte 
 
-<h2 style="color:green" ><a link="https://swathihl2.github.io/string_calc/"> click here, see there ,Enjoy</a></h2> 
-
+<h2 style="color:green" >[click here, see there ,Enjoy](https://swathihl2.github.io/string_calc/)</h2>
 
 Steps:
 Create a simple String calculator with a method signature like this:
