@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const data = document.getElementById("numbers").value.trim();
 
         if (!data) {
-            document.getElementById('response').innerText = 'Please enter a string.';
+            document.getElementById('response').innerText = 0;
             return;
         }
 
