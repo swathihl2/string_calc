@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const url = 'https://shl-server.onrender.com/stringcalc';
 
+        document.getElementById('loading').style.display = 'block';
+        document.getElementById('response').innerText = '';
+
         fetch(url, {
             method: 'POST',
             headers: {
@@ -30,6 +33,9 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Error:', error);
             document.getElementById('response').innerText = 'Error: ' + error.message;
+        })
+        .finally(() => {
+            document.getElementById('loading').style.display = 'none';
         });
     });
 });
